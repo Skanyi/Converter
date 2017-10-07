@@ -1,6 +1,8 @@
 '''
 Usage:
     convert_hex_to_text <filename>
+    decode_base64 <encoded_string>
+    encode_txt_to_base64 <text>
     quit
 Options:
     -h, --help  Show this screen and exit
@@ -65,6 +67,18 @@ class ConverterApplication(cmd.Cmd):
         ''' Usage: convert_hex_to_text <filename> '''
         filename = arg['<filename>']
         Converter.convert_hex_to_text(filename)
+
+    @docopt_cmd
+    def do_decode_base64(self, arg):
+        '''Usage: decode_base64 <encoded_string> '''
+        encoded_string = arg['<encoded_string>']
+        Converter.decode_base64(encoded_string)
+    
+    @docopt_cmd
+    def do_encode_txt_to_base64(self, arg):
+        ''' Usage: encode_txt_to_base64 <filename> '''
+        filename = arg['<filename>']
+        Converter.encode_txt_to_base64(filename)
 
     @docopt_cmd
     def do_quit(self, arg):
